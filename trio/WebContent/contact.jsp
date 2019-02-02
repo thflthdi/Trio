@@ -24,13 +24,15 @@
 			<header id="header">
 				<span class="logo"><a href="index.jsp">Trio Restaurant</a></span>
 				<ul class="tools-nav tools-nav-mobile">
-					<li class="items"><a href="cart.jsp"><span>2</span> Items, <strong>$599.00</strong></a></li>
-						
-						<% if(session.getAttribute("userID")==null){ %>
-						
+					<% if(session.getAttribute("userID")==null){ %>
+							
 							<li class="login"><a href="login.html">Login</a> / <a href="register.html">register</a></li>
 							
 						<% }else{ %>
+							<li class="items"><a href="cart1.jsp">
+							<span><%
+						   	out.print(session.getAttribute("total"));
+							%></span> Items</a></li>
 							<li class="login"><a href="myPage.jsp"><% out.print(session.getAttribute("userID")); %></a>
 							/<a href="Logout.jsp">Logout</a></li>
 						<% } %>
@@ -47,16 +49,18 @@
 						</ul>
 					</nav>
 					<ul class="tools-nav">
-						<li class="items"><a href="cart.jsp"><span>2</span> Items, <strong>$599.00</strong></a></li>
 						<% if(session.getAttribute("userID")==null){ %>
-					
+							
 							<li class="login"><a href="login.html">Login</a> / <a href="register.html">register</a></li>
 							
 						<% }else{ %>
+							<li class="items"><a href="cart1.jsp">
+							<span><%
+						   	out.print(session.getAttribute("total"));
+							%></span> Items</a></li>
 							<li class="login"><a href="myPage.jsp"><% out.print(session.getAttribute("userID")); %></a>
 							/<a href="Logout.jsp">Logout</a></li>
 						<% } %>
-							 
 					</ul>
 				</div>
 			</header>

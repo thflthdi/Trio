@@ -24,13 +24,17 @@
 			<header id="header">
 				<span class="logo"><a href="index.jsp">Trio Restaurant</a></span>
 				<ul class="tools-nav tools-nav-mobile">
-					<li class="items"><a href="cart.jsp"><span>2</span> Items, <strong>$599.00</strong></a></li>
+					
 						
 						<% if(session.getAttribute("userID")==null){ %>
-						
+							
 							<li class="login"><a href="login.html">Login</a> / <a href="register.html">register</a></li>
 							
 						<% }else{ %>
+							<li class="items"><a href="cart1.jsp">
+							<span><%
+						   	out.print(session.getAttribute("total"));
+							%></span> Items</a></li>
 							<li class="login"><a href="myPage.jsp"><% out.print(session.getAttribute("userID")); %></a>
 							/<a href="Logout.jsp">Logout</a></li>
 						<% } %>
@@ -47,12 +51,15 @@
 						</ul>
 					</nav>
 					<ul class="tools-nav">
-						<li class="items"><a href="cart.jsp"><span>2</span> Items, <strong>$599.00</strong></a></li>
+						
 						<% if(session.getAttribute("userID")==null){ %>
-					
 							<li class="login"><a href="login.html">Login</a> / <a href="register.html">register</a></li>
 							
 						<% }else{ %>
+							<li class="items"><a href="cart1.jsp">
+							<span><%
+						   	out.print(session.getAttribute("total"));
+							%></span> Items</a></li>
 							<li class="login"><a href="myPage.jsp"><% out.print(session.getAttribute("userID")); %></a>
 							/<a href="Logout.jsp">Logout</a></li>
 						<% } %>
@@ -103,40 +110,40 @@
 			<section id="main">
 				<div class="boxes">
 					<div class="box">
-						<a href="#">
-							<span class="bg"></span>
+						<a href="event/event.jsp">
+							
 							<img src="images/img-01.jpg" alt="" />
 							<div class="box-info">
 								<div class="box-info-holder">
-									<span class="title"><span>New stuff</span></span>
-									<h2>Suits for gentlemen</h2>
-									<span class="btn white normal">More new suits</span>
+									<span class="title"><span>New evnet</span></span>
+									<h2>new event coming soon</h2>
+									<span class="btn white normal">More new evnets</span>
 								</div>
 							</div>
 						</a>
 					</div>
 					<div class="box">
-						<a href="#">
-							<span class="bg"></span>
+						<a href="contact.jsp">
+							
 							<img src="images/img-02.jpg" alt="" />
 							<div class="box-info">
 								<div class="box-info-holder">
-									<span class="title"><span>Sale</span></span>
-									<h2>all Jackets 50% off</h2>
-									<span class="btn white normal">See products</span>
+									<span class="title"><span>오시는길</span></span>
+									<h2>Welcome to Restaurant</h2>
+									<span class="btn white normal">GO~GO</span>
 								</div>
 							</div>
 						</a>
 					</div>
 					<div class="box">
-						<a href="#">
-							<span class="bg"></span>
+						<a href="faq.jsp">
+							
 							<img src="images/img-03.jpg" alt="" />
 							<div class="box-info">
 								<div class="box-info-holder">
-									<span class="title"><span>Hot</span></span>
-									<h2>Offer for real men</h2>
-									<span class="btn white normal">Be a real men</span>
+									<span class="title"><span>FAQ</span></span>
+									<h2>Ask me anything</h2>
+									<span class="btn white normal">question</span>
 								</div>
 							</div>
 						</a>

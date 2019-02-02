@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    <%@ page import ="java.sql.*" %>
+<%@ page import="java.util.Date" %>
+<%@ page import ="trio.DButil" %>
 <!DOCTYPE html>
 <!--[if lte IE 8]> <html class="oldie" lang="en"> <![endif]-->
 <!--[if IE 9]> <html class="ie9" lang="en"> <![endif]-->
@@ -17,20 +20,25 @@
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+	
 </head>
 <body>
+
+
 	<div id="wrapper">
 		<div class="wrapper-holder">
 			<header id="header">
 				<span class="logo"><a href="index.jsp">Trio Restaurant</a></span>
 				<ul class="tools-nav tools-nav-mobile">
-					<li class="items"><a href="cart.jsp"><span>2</span> Items, <strong>$599.00</strong></a></li>
-						
-						<% if(session.getAttribute("userID")==null){ %>
-						
+					<% if(session.getAttribute("userID")==null){ %>
+							
 							<li class="login"><a href="login.html">Login</a> / <a href="register.html">register</a></li>
 							
 						<% }else{ %>
+							<li class="items"><a href="cart1.jsp">
+							<span><%
+						   	out.print(session.getAttribute("total"));
+							%></span> Items</a></li>
 							<li class="login"><a href="myPage.jsp"><% out.print(session.getAttribute("userID")); %></a>
 							/<a href="Logout.jsp">Logout</a></li>
 						<% } %>
@@ -47,16 +55,18 @@
 						</ul>
 					</nav>
 					<ul class="tools-nav">
-						<li class="items"><a href="cart.jsp"><span>2</span> Items, <strong>$599.00</strong></a></li>
 						<% if(session.getAttribute("userID")==null){ %>
-					
+							
 							<li class="login"><a href="login.html">Login</a> / <a href="register.html">register</a></li>
 							
 						<% }else{ %>
+							<li class="items"><a href="cart1.jsp">
+							<span><%
+						   	out.print(session.getAttribute("total"));
+							%></span> Items</a></li>
 							<li class="login"><a href="myPage.jsp"><% out.print(session.getAttribute("userID")); %></a>
 							/<a href="Logout.jsp">Logout</a></li>
 						<% } %>
-							 
 					</ul>
 				</div>
 			</header>
@@ -99,35 +109,50 @@
 				
 				
 				<ul class="item-list">
+				<%
+				Connection conn = DButil.getMySQLConnection();
+				String sql2 = "SELECT foodNum,foodName,foodId,foodPri,imgsrc from menu";
+				PreparedStatement pstmt=conn.prepareStatement(sql2);
+				ResultSet rs = pstmt.executeQuery();
+			    while(rs.next()) {
+			    	int foodNum = rs.getInt(1);
+			    	String foodName = rs.getString(2);
+			    	String foodId = rs.getString(3);
+			    	int foodPri = rs.getInt(4);
+			    	String imgsrc= rs.getString(5);
+				%>
+				
 					<li>
 						<div class="item">
 							<div class="image">
-								<img src="images/menu-item-01.jpg"  alt="" />
+								<img src=<%=imgsrc %> alt="" />
 								<div class="hover">
 									<span class="item-content" style="text-align:center;width:1200px; height:220px;">
-										<a href="cart.jsp" id="m-01" class="btn white normal">Add to cart</a>
-										<a href="singleproduct.jsp" id="m-01" class="btn white normal">See details</a>
+									</script>
+										<a OnClick="window.location='cart.jsp?idx=<%=foodNum%>'" class="btn white normal">Add to cart</a>
+										<a OnClick="window.location='singleProduct1.jsp?idx=<%=foodNum%>'" class="btn white normal">See details</a>
 									</span>
 									<span class="bg"></span>
 								</div>
 							</div>
-							<span class="name">µçµçÇÑ ºê·±Ä¡</span>
-							<span>$250.00</span>
+							<span class="name"><%=foodName %></span>
+							<span><%=foodPri %></span>
 						</div>
 					</li>
-					<li>
+					<%} %>
+					<%-- <li>
 						<div class="item">
 							<div class="image">
 								<img src="images/menu-item-02.jpg"  alt="" />
 								<div class="hover">
 									<div class="item-content" style="text-align:center;width:1200px; height:220px;">
-										<a href="cart.jsp" id="m-02" class="btn white normal">Add to cart</a>
-										<a href="singleproduct.jsp" id="m-02" class="btn white normal">See details</a>
+										<a OnClick="window.location='cart1.jsp?idx=<%=foodNum%>'" class="btn white normal">Add to cart</a>
+										<a OnClick="window.location='singleProduct.jsp?idx=<%=foodNum%>'" class="btn white normal">See details</a>
 									</div>
 									<span class="bg"></span>
 								</div>
 							</div>
-							<span class="name">±ò²ûÇÑ ºê·±Ä¡</span>
+							<span class="name"><%=foodName %></span>
 							<span>$399.00</span>
 						</div>
 					</li>
@@ -138,7 +163,7 @@
 								<img src="images/menu-item-03.jpg"  alt="" />
 								<div class="hover">
 									<div class="item-content" style="text-align:center;width:1200px; height:220px;">
-										<a href="cart.jsp" id="m-03" class="btn white normal">Add to cart</a>
+										<a href="cart1.jsp" id="m-03" class="btn white normal">Add to cart</a>
 										<a href="singleproduct.jsp" id="m-03" class="btn white normal">See details</a>
 									</div>
 									<span class="bg"></span>
@@ -154,7 +179,7 @@
 								<img src="images/menu-item-04.jpg"  alt="" />
 								<div class="hover">
 									<div class="item-content" style="text-align:center;width:1200px; height:220px;">
-										<a href="cart.jsp" id="m-04" class="btn white normal">Add to cart</a>
+										<a href="cart1.jsp" id="m-04" class="btn white normal">Add to cart</a>
 										<a href="singleproduct.jsp" id="m-04" class="btn white normal">See details</a>
 									</div>
 									<span class="bg"></span>
@@ -171,7 +196,7 @@
 								<img src="images/menu-item-05.jpg"  alt="" />
 								<div class="hover">
 									<div class="item-content" style="text-align:center;width:1200px; height:220px;">
-										<a href="cart.jsp" id="m-05" class="btn white normal">Add to cart</a>
+										<a href="cart1.jsp" id="m-05" class="btn white normal">Add to cart</a>
 										<a href="singleproduct.jsp" id="m-05" class="btn white normal">See details</a>
 									</div>
 									<span class="bg"></span>
@@ -187,7 +212,7 @@
 								<img src="images/menu-item-06.jpg"  alt="" />
 								<div class="hover">
 									<div class="item-content" style="text-align:center;width:1200px; height:220px;">
-										<a href="cart.jsp" id="m-06" class="btn white normal">Add to cart</a>
+										<a href="cart1.jsp" id="m-06" class="btn white normal">Add to cart</a>
 										<a href="singleproduct.jsp" id="m-06" class="btn white normal">See details</a>
 									</div>
 									<span class="bg"></span>
@@ -205,7 +230,7 @@
 								<img src="images/menu-item-07-.jpg"  alt="" />
 								<div class="hover">
 									<div class="item-content" style="text-align:center;width:1200px; height:220px;">
-										<a href="cart.jsp" id="m-07" class="btn white normal">Add to cart</a>
+										<a href="cart1.jsp" id="m-07" class="btn white normal">Add to cart</a>
 										<a href="singleproduct.jsp" id="m-07" class="btn white normal">See details</a>
 									</div>
 									<span class="bg"></span>
@@ -221,7 +246,7 @@
 								<img src="images/menu-item-08-.jpg"  alt="" />
 								<div class="hover">
 									<div class="item-content" style="text-align:center;width:1200px; height:220px;">
-										<a href="cart.jsp" id="m-08" class="btn white normal">Add to cart</a>
+										<a href="cart1.jsp" id="m-08" class="btn white normal">Add to cart</a>
 										<a href="singleproduct.jsp" id="m-08" class="btn white normal">See details</a>
 									</div>
 									<span class="bg"></span>
@@ -237,7 +262,7 @@
 								<img src="images/menu-item-09.jpg"  alt="" />
 								<div class="hover">
 									<div class="item-content" style="text-align:center;width:1200px; height:220px;">
-										<a href="cart.jsp" id="m-09" class="btn white normal">Add to cart</a>
+										<a href="cart1.jsp" id="m-09" class="btn white normal">Add to cart</a>
 										<a href="singleproduct.jsp" id="m-09" class="btn white normal">See details</a>
 									</div>
 									<span class="bg"></span>
@@ -253,7 +278,7 @@
 								<img src="images/menu-item-10.jpg"  alt="" />
 								<div class="hover">
 									<div class="item-content" style="text-align:center;width:1200px; height:220px;">
-										<a href="cart.jsp" id="m-10" class="btn white normal">Add to cart</a>
+										<a href="cart1.jsp" id="m-10" class="btn white normal">Add to cart</a>
 										<a href="singleproduct.jsp" id="m-10" class="btn white normal">See details</a>
 									</div>
 									<span class="bg"></span>
@@ -262,7 +287,7 @@
 							<span class="name">±ò²ûÇÑ Ä¡</span>
 							<span>$399.00</span>
 						</div>
-					</li>
+					</li> --%>
 					
 				</ul>
 				

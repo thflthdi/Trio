@@ -47,12 +47,15 @@
 			<header id="header">
 				<span class="logo"><a href="../index.jsp">Trio Restaurant</a></span>
 				<ul class="tools-nav tools-nav-mobile">
-					<li class="items"><a href="../cart.jsp"><span>2</span> Items, <strong>$599.00</strong></a></li>
-						<% if(session.getAttribute("userID")==null){ %>
-					
+					<% if(session.getAttribute("userID")==null){ %>
+							
 							<li class="login"><a href="../login.html">Login</a> / <a href="../register.html">register</a></li>
 							
 						<% }else{ %>
+							<li class="items"><a href="../cart1.jsp">
+							<span><%
+						   	out.print(session.getAttribute("total"));
+							%></span> Items</a></li>
 							<li class="login"><a href="../myPage.jsp"><% out.print(session.getAttribute("userID")); %></a>
 							/<a href="../Logout.jsp">Logout</a></li>
 						<% } %>
@@ -69,12 +72,15 @@
 						</ul>
 					</nav>
 					<ul class="tools-nav">
-						<li class="items"><a href="cart.jsp"><span>2</span> Items, <strong>$599.00</strong></a></li>
 						<% if(session.getAttribute("userID")==null){ %>
-					
+							
 							<li class="login"><a href="../login.html">Login</a> / <a href="../register.html">register</a></li>
 							
 						<% }else{ %>
+							<li class="items"><a href="../cart1.jsp">
+							<span><%
+						   	out.print(session.getAttribute("total"));
+							%></span> Items</a></li>
 							<li class="login"><a href="../myPage.jsp"><% out.print(session.getAttribute("userID")); %></a>
 							/<a href="../Logout.jsp">Logout</a></li>
 						<% } %>
@@ -130,7 +136,7 @@
 					<textarea id="eventText" name="eventText" maxlength="100" 
 					style="resize:none;width:550px;height:100%;overflow:auto;text-align:center"></textarea>
 					</td>
-					<td style="padding:10px;border-bottom:1px solid #BDBDBD;">
+					<td style="padding:10px;">
 					<input type="submit" value="응원" style="height:100px;width:100px;">
 					</td>
 				</tr>
@@ -150,11 +156,11 @@
 			    	String date1 = rs.getString(4);
 		%>
 			    
-			    <tr style="border-bottom:1px solid #BDBDBD;">
-			    	<td style="padding:10px;text-align:center;border-right: 1px solid #BDBDBD;">
+			    <tr >
+			    	<td style="padding:10px;text-align:center;border-right: 1px solid #BDBDBD;border-bottom:1px solid #BDBDBD;">
 			    	<%=userId1 %> <br> <h6><%=date1 %></h6>
 			    	</td>
-			    	<td style="font-size:medium;padding:10px;text-align:center;width:530px;border-right: 1px solid #BDBDBD;">
+			    	<td style="font-size:medium;word-break:break-all;word-wrap:break-word;padding:10px;text-align:center;width:530px;border-right: 1px solid #BDBDBD;border-bottom:1px solid #BDBDBD;">
 			    	 <%=eventtext1 %>
 			    	</td>
 			    	<td style="font-size:small;padding:10px;text-align:center;">
