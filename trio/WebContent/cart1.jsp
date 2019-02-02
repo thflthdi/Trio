@@ -76,8 +76,14 @@
 			</section>
 			<section id="main">
 				<ul class="list-table">
-				
 				<% 
+						if(session.getAttribute("total").equals(0)) {
+					%>
+						 		
+						<h3>장바구니가 텅 비었네요</h3>
+						 	  
+				<% 
+						}else{
 				request.setCharacterEncoding("UTF-8");	
 				Connection conn = DButil.getMySQLConnection();
 				String sql = "select foodNum,foodPri,foodName,imgsrc from userFood where userID='"+session.getAttribute("userID")+"'";
@@ -129,6 +135,7 @@
 				DButil.close(rs);
 				DButil.close(pstmt);
 				DButil.close(conn);
+						}
 				%>
 				<!-- <form action="#" class="form-payment">
 					<fieldset>

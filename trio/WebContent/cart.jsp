@@ -8,7 +8,8 @@
 	String id = "yejin"; 
 	String pass = "0503"; 
 	int idx = Integer.parseInt(request.getParameter("idx")); 
-	try { Connection conn = DriverManager.getConnection(url,id,pass); 
+	try { 
+	Connection conn = DriverManager.getConnection(url,id,pass); 
 	Statement stmt = conn.createStatement(); 
 	String sql = "SELECT foodNum,foodPri,foodName,imgsrc FROM menu WHERE foodNum=" + idx;
 
@@ -23,6 +24,18 @@
 	 stmt.executeUpdate(sql); 
 	 rs.close(); 
 	 stmt.close(); 
+	   int total=0;
+		String sql1 = "SELECT count(*) from userFood where userID='"+session.getAttribute("userID")+"'";
+		PreparedStatement pstmt1=conn.prepareStatement(sql1);
+		ResultSet rs1 = pstmt1.executeQuery();
+	    if(rs1.next()){
+	    	total=rs1.getInt(1);
+	    }
+	    rs1.close();
+	    session.setAttribute("total", total);
+
+		DButil.close(rs1);
+		DButil.close(pstmt1);
 	 conn.close(); } 
 	}catch(SQLException e) {e.printStackTrace(); }
 	response.sendRedirect("cart1.jsp");

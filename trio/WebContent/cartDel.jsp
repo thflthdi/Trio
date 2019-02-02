@@ -15,6 +15,18 @@
 	pstmt.executeUpdate();
 	
 	DButil.close(pstmt);
+	int total=0;
+	String sql1 = "SELECT count(*) from userFood where userID='"+session.getAttribute("userID")+"'";
+	PreparedStatement pstmt1=conn.prepareStatement(sql1);
+	ResultSet rs1 = pstmt1.executeQuery();
+    if(rs1.next()){
+    	total=rs1.getInt(1);
+    }
+    rs1.close();
+    session.setAttribute("total", total);
+
+	DButil.close(rs1);
+	DButil.close(pstmt1);
 	DButil.close(conn);
 	
 	out.println("<script>");
