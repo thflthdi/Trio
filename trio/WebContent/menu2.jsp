@@ -263,30 +263,23 @@
 		</div>
 		
 		
-		<footer id="footer">
+	<footer id="footer">
 			<div class="footer-holder">
 				<div class="footer-frame">
 					<div class="footer-content">
 						<div class="col-holder">
-							<div class="col">
-								<div class="heading">
-									<h3>About us</h3>
-								</div>
-								<p>Vero eos et accusamus et iusto dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti</p>
-								<p>Quos dolores et quas molestias excepturi sint occaecati cupiditate.</p>
-							</div>
+							
 							<div class="col">
 								<div class="heading">
 									<h3>Contact</h3>
 								</div>
 								<address>
-									<p><strong>Elegantic Inc.</strong></p>
-									<p>1041 Madison Ave,</p>
-									<p>New York</p>
+									<p><strong>Trio restaurant</strong></p>
+									<p>Korea</p>
 								</address>
 								<address>
-									<p>(45) 523 565 242</p>
-									<p><a href="mailto:office@elegantic.com">office@elegantic.com</a></p>
+									<p>010 4334 5174</p>
+									<p><a href="mailto:office@elegantic.com">thflthdi@naver.com</a></p>
 								</address>
 							</div>
 							<div class="col col-contact">
@@ -304,7 +297,7 @@
 					</div>
 					<div class="footer-bottom">
 						<div class="holder">
-							<p>Copyright 2014 Elegantic. All rights reserved.</p>
+							<p>Thank you</p>
 						</div>
 					</div>
 				</div>

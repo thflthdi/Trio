@@ -73,7 +73,7 @@
 						<div class="slide-holder">
 							<div class="slide-info">
 								<h1>메인 메뉴 살펴보기</h1>
-								<p>Excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+								<p>main main main main main main main main main main main main main main main main main main main main main main main main main main main main main main main main main main main main main main main</p>
 								<a class="btn white big" href="menu.jsp">See the collection</a>
 							</div>
 						</div>
@@ -82,7 +82,7 @@
 						<div class="slide-holder">
 							<div class="slide-info">
 								<h1>셰프 추천 메뉴</h1>
-								<p>Excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+								<p>recommend recommend recommend recommend recommend recommend recommend recommend recommend recommend recommend recommend recommend recommend recommend recommend recommend recommend recommend recommend </p>
 								<a class="btn white big" href="chef.jsp">See the collection</a>
 							</div>
 						</div>
@@ -91,7 +91,7 @@
 						<div class="slide-holder">
 							<div class="slide-info">
 								<h1>프로모션 메뉴</h1>
-								<p>Excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+								<p>promotion promotion promotion promotion promotion promotion promotion promotion promotion promotion promotion promotion promotion promotion promotion promotion promotion promotion promotion promotion </p>
 								<a class="btn white big" href="event/event.jsp">See the collection</a>
 							</div>
 						</div>
@@ -100,7 +100,7 @@
 						<div class="slide-holder">
 							<div class="slide-info">
 								<h1>take out dessert</h1>
-								<p>Excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+								<p>dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert dessert </p>
 								<a class="btn white big" href="dessert.jsp">See the collection</a>
 							</div>
 						</div>
@@ -159,25 +159,18 @@
 				<div class="footer-frame">
 					<div class="footer-content">
 						<div class="col-holder">
-							<div class="col">
-								<div class="heading">
-									<h3>About us</h3>
-								</div>
-								<p>Vero eos et accusamus et iusto dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti</p>
-								<p>Quos dolores et quas molestias excepturi sint occaecati cupiditate.</p>
-							</div>
+							
 							<div class="col">
 								<div class="heading">
 									<h3>Contact</h3>
 								</div>
 								<address>
-									<p><strong>Elegantic Inc.</strong></p>
-									<p>1041 Madison Ave,</p>
-									<p>New York</p>
+									<p><strong>Trio restaurant</strong></p>
+									<p>Korea</p>
 								</address>
 								<address>
-									<p>(45) 523 565 242</p>
-									<p><a href="mailto:office@elegantic.com">office@elegantic.com</a></p>
+									<p>010 4334 5174</p>
+									<p><a href="mailto:office@elegantic.com">thflthdi@naver.com</a></p>
 								</address>
 							</div>
 							<div class="col col-contact">
@@ -195,7 +188,7 @@
 					</div>
 					<div class="footer-bottom">
 						<div class="holder">
-							<p>Copyright 2014 Elegantic. All rights reserved.</p>
+							<p>Thank you</p>
 						</div>
 					</div>
 				</div>
